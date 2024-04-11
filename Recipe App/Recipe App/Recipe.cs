@@ -11,7 +11,7 @@
             Ingredient ingredient = new Ingredient
             {
                 Name = name,
-                Quantity = quantity,
+                Quantity = (double)quantity,
                 OriginalQuantity = quantity,
                 UnitOfMeasurement = unitOfMeasurement
             };
@@ -65,6 +65,14 @@
                 "Steps:" + "\n" +
                 $"{stepString}" +
                 "==============================================");
+        }
+
+        public void Scale(double factor)
+        {
+            foreach (Ingredient ingredient in Ingredients)
+            {
+                ingredient.Quantity = ingredient.Quantity * factor;
+            }
         }
 
         public void ResetIngredientValues()
