@@ -27,4 +27,26 @@ internal class Program
 
         return input;
     }
+
+    public static Recipe AddRecipe()
+    {
+        Recipe recipe = new Recipe();
+
+        int numberOfIngredients = GetIntInput("Enter the number of ingredients: ");
+        recipe.SetIngredientsLength(numberOfIngredients);
+
+        for (int i = 0; i<numberOfIngredients; i++)
+        {
+            Console.Write("Name: ");
+            string recipeName = Console.ReadLine();
+
+            int recipeQuantity = GetIntInput("Quantity: ");
+
+            Console.Write("Unit of measurement: ");
+            string recipeUnitOfMeasurement = Console.ReadLine();
+
+            recipe.AddIngredient(recipeName, recipeQuantity, recipeUnitOfMeasurement, i);
+        }
+        return recipe;
+    }
 }
