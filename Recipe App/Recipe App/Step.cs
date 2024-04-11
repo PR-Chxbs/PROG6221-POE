@@ -2,17 +2,15 @@
 {
     internal class Step
     {
-        private static int stepNumberClass = 1;
         private int stepNumber;
         private string stepName;
         private string description;
 
 
-        public Step()
+        public Step(int number)
         {
-            stepNumber = stepNumberClass;
+            stepNumber = number;
             stepName = $"Step {stepNumber}";
-            stepNumberClass++;
         }
 
         public int StepNumber
