@@ -3,8 +3,8 @@
     internal class Ingredient
     {
         private string name;
-        private int quantity;
-        private int originalQuantity;
+        private double quantity;
+        private double originalQuantity;
         private string unitOfMeasurement;
 
         public void ResetQuantity()
@@ -17,13 +17,13 @@
             set { name = value; }
         }
 
-        public int Quantity
+        public double Quantity
         {
             get { return quantity; }
             set { quantity = value; }
         }
 
-        public int OriginalQuantity
+        public double OriginalQuantity
         {
             get { return originalQuantity; }
             set { originalQuantity = value; }
