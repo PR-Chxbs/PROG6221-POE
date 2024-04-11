@@ -35,6 +35,33 @@
             Steps = new Step[length];
         }
 
+        public void PrintDetails()
+        {
+            string ingredientsString = "";
+            string stepString = "";
+
+            foreach (Ingredient ingredient in ingredients)
+            {
+                ingredientsString += $"- {ingredient.Quantity} {ingredient.UnitOfMeasurement} of {ingredient.Name}\n";
+            }
+
+            foreach (Step step in Steps)
+            {
+                stepString += $"{step.StepNumber}. {step.Description}\n";
+            }
+
+            Console.WriteLine(
+                "==============================================" + "\n" + 
+                "**********************************************" + "\n" +
+                $"              {recipeName}" + "\n" +
+                "**********************************************" + "\n" +
+                "\n" +
+                "Ingredients:" + "\n" +
+                $"{ingredientsString}" + "\n" +
+                "Steps:" + "\n" +
+                $"{stepString}" +
+                "==============================================");
+        }
         public Ingredient[] Ingredients
         {
             get { return ingredients; }
