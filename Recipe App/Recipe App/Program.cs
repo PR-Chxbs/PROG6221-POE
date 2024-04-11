@@ -4,7 +4,8 @@ internal class Program
 {
     public static void Main(string[] args)
     {
-        Recipe recipe;
+        Recipe recipe = new Recipe();
+        bool recipeAdded = false;
 
         string menu = 
             "Select an option:" + "\n" +
@@ -17,6 +18,72 @@ internal class Program
             ": "; 
 
         int choice = VerifyInput(menu, 1, 6);
+
+        switch (choice)
+        {
+            case 1:
+                recipe = AddRecipe();
+                recipeAdded = true;
+                break;
+
+            case 2:
+                if (recipeAdded)
+                {
+                    recipe.PrintDetails();
+                    break;
+                }
+                break;
+
+            case 3:
+                if (recipeAdded)
+                {
+                    string scaleMenu = 
+                        "Select an option:" + "\n" +
+                        "1. Half" + "\n" +
+                        "2. Double" + "\n" +
+                        "3. Triple";
+                    int scaleChoice = VerifyInput(scaleMenu, 1, 3);
+
+                    double scaleFactor = 0;
+                    switch (scaleChoice)
+                    {
+                        case 1:
+                            scaleFactor = 0.5;
+                            break;
+
+                        case 2:
+                            scaleFactor = 2;
+                            break;
+
+                        case 3:
+                            scaleFactor = 3;
+                            break;
+                    }
+                    recipe.Scale(scaleFactor);
+                    break;
+                }
+                break;
+
+            case 4:
+                if (recipeAdded)
+                {
+                    recipe.ResetIngredientValues();
+                    break;
+                }
+                break;
+
+            case 5:
+                if (recipeAdded)
+                {
+                    recipe.ClearRecipe();
+                    break;
+                }
+                break;
+
+            case 6:
+                break;
+        }
+
 
         
     }
