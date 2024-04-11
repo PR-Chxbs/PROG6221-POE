@@ -67,6 +67,13 @@
                 "==============================================");
         }
 
+        public void ResetIngredientValues()
+        {
+            foreach (Ingredient ingredient in ingredients)
+            {
+                ingredient.ResetQuantity();
+            }
+        }
         public void ClearRecipe()
         {
             ingredients = new Ingredient[0];
