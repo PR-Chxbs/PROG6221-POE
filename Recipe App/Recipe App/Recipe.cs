@@ -67,6 +67,13 @@
                 "==============================================");
         }
 
+        public void ClearRecipe()
+        {
+            ingredients = new Ingredient[0];
+            steps = new Step[0];
+            recipeName = string.Empty;
+        }
+
         public Ingredient[] Ingredients
         {
             get { return ingredients; }
