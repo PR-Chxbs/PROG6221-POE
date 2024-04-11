@@ -4,7 +4,17 @@ internal class Program
 {
     public static void Main(string[] args)
     {
+        string menu = 
+            "Select an option:" + "\n" +
+            "1. Add Recipe Details" + "\n" +
+            "2. Display Recipe" + "\n" +
+            "3. Scale Recipe" + "\n"  +
+            "4. Reset Original Values" + "\n" +
+            "5. Clear Recipe" + "\n" +
+            "6. Quit" + "\n" +
+            ": "; 
 
+        int choice = GetIntInput(menu);
     }
 
     public static int GetIntInput(string prompt)
