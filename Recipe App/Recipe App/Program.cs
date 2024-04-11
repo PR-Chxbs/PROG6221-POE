@@ -44,8 +44,23 @@ internal class Program
 
             Console.Write("Unit of measurement: ");
             string recipeUnitOfMeasurement = Console.ReadLine();
-
             recipe.AddIngredient(recipeName, recipeQuantity, recipeUnitOfMeasurement, i);
+        }
+
+
+        int numberOfSteps = GetIntInput("Enter the number of steps: ");
+        recipe.SetStepsLength(numberOfSteps);
+
+        for (int i = 0; i<numberOfSteps; i++)
+        {
+            int stepNumber = i + 1;
+            Console.Write("Name: ");
+            string stepName = Console.ReadLine();
+
+            Console.Write("Step description: ");
+            string stepDescription = Console.ReadLine();
+
+            recipe.AddStep(stepNumber, stepName, stepDescription, i);
         }
         return recipe;
     }
