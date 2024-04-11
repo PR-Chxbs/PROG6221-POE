@@ -21,6 +21,20 @@
             ingredients = new Ingredient[length];
         }
 
+        public void AddStep(int stepNumber, string name, string description, int index)
+        {
+            Step step = new Step(stepNumber);
+            step.StepName = name;
+            step.Description = description;
+
+            Steps[index] = step;
+        }
+
+        public void SetStepsLength(int length)
+        {
+            Steps = new Step[length];
+        }
+
         public Ingredient[] Ingredients
         {
             get { return ingredients; }
