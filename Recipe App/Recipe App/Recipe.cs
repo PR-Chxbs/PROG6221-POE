@@ -8,10 +8,14 @@
 
         public void AddIngredient(string name, int quantity, string unitOfMeasurement, int index)
         {
-            Ingredient ingredient = new Ingredient();
-            ingredient.Name = name;
-            ingredient.Quantity = quantity;
-            ingredient.UnitOfMeasurement = unitOfMeasurement;
+            Ingredient ingredient = new Ingredient
+            {
+                Name = name,
+                Quantity = quantity,
+                OriginalQuantity = quantity,
+                UnitOfMeasurement = unitOfMeasurement
+            };
+            
 
             ingredients[index] = ingredient;
         }
@@ -62,6 +66,7 @@
                 $"{stepString}" +
                 "==============================================");
         }
+
         public Ingredient[] Ingredients
         {
             get { return ingredients; }
