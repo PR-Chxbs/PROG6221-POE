@@ -6,6 +6,7 @@ internal class Program
     {
         Recipe recipe = new Recipe();
         bool recipeAdded = false;
+        bool running = true;
 
         string menu = 
             "Select an option:" + "\n" +
@@ -15,75 +16,85 @@ internal class Program
             "4. Reset Original Values" + "\n" +
             "5. Clear Recipe" + "\n" +
             "6. Quit" + "\n" +
-            ": "; 
+            ": ";
 
-        int choice = VerifyInput(menu, 1, 6);
-
-        switch (choice)
+        do
         {
-            case 1:
-                recipe = AddRecipe();
-                recipeAdded = true;
-                break;
+            int choice = VerifyInput(menu, 1, 6);
 
-            case 2:
-                if (recipeAdded)
-                {
-                    recipe.PrintDetails();
+            switch (choice)
+            {
+                case 1:
+                    recipe = AddRecipe();
+                    recipeAdded = true;
                     break;
-                }
-                break;
 
-            case 3:
-                if (recipeAdded)
-                {
-                    string scaleMenu = 
-                        "Select an option:" + "\n" +
-                        "1. Half" + "\n" +
-                        "2. Double" + "\n" +
-                        "3. Triple";
-                    int scaleChoice = VerifyInput(scaleMenu, 1, 3);
-
-                    double scaleFactor = 0;
-                    switch (scaleChoice)
+                case 2:
+                    if (recipeAdded)
                     {
-                        case 1:
-                            scaleFactor = 0.5;
-                            break;
-
-                        case 2:
-                            scaleFactor = 2;
-                            break;
-
-                        case 3:
-                            scaleFactor = 3;
-                            break;
+                        recipe.PrintDetails();
+                        break;
                     }
-                    recipe.Scale(scaleFactor);
                     break;
-                }
-                break;
 
-            case 4:
-                if (recipeAdded)
-                {
-                    recipe.ResetIngredientValues();
+                case 3:
+                    if (recipeAdded)
+                    {
+                        string scaleMenu =
+                            "Select an option:" + "\n" +
+                            "1. Half" + "\n" +
+                            "2. Double" + "\n" +
+                            "3. Triple" +
+                            ": ";
+
+                        int scaleChoice = VerifyInput(scaleMenu, 1, 3);
+
+                        double scaleFactor = 0;
+                        switch (scaleChoice)
+                        {
+                            case 1:
+                                scaleFactor = 0.5;
+                                break;
+
+                            case 2:
+                                scaleFactor = 2;
+                                break;
+
+                            case 3:
+                                scaleFactor = 3;
+                                break;
+                        }
+                        recipe.Scale(scaleFactor);
+                        break;
+                    }
                     break;
-                }
-                break;
 
-            case 5:
-                if (recipeAdded)
-                {
-                    recipe.ClearRecipe();
+                case 4:
+                    if (recipeAdded)
+                    {
+                        recipe.ResetIngredientValues();
+                        break;
+                    }
                     break;
-                }
-                break;
 
-            case 6:
-                break;
-        }
+                case 5:
+                    if (recipeAdded)
+                    {
+                        recipe.ClearRecipe();
+                        recipeAdded = false;
+                        break;
+                    }
+                    break;
 
+                case 6:
+                    running = false;
+                    break;
+            }
+            if (!recipeAdded && running)
+            {
+                Console.WriteLine("That function cannot be used until you add a recipe\n");
+            }
+        } while (running);
 
         
     }
