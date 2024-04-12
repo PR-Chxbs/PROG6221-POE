@@ -7,11 +7,12 @@ internal class Program
     public static void Main(string[] args)
     {
         
-        Recipe recipe = new Recipe();
+        Recipe recipe = new Recipe(); // Placeholder recipe object
         bool recipeAdded = false;
         bool running = true;
         bool recipeDeleted = false;
 
+        // String containing the menu content
         string menu = 
             $"{line}" + "\n" +
             "Select an option:" + "\n" +
@@ -23,19 +24,24 @@ internal class Program
             "6. Quit" + "\n" +
             ": ";
 
+        // Main program loop
         do
         {
             int choice = VerifyInput(menu, 1, 6);
             Console.WriteLine(line);
 
+            // Executing code that corresponds with the users chosen option
             switch (choice)
             {
                 case 1:
+                    // If recipe already exists, display an error message and skip the rest of the code
                     if (recipeAdded)
                     {
                         Console.WriteLine("Recipe already added");
                         break;
                     }
+
+                    // Add recipe
                     Console.WriteLine(starLine);
                     recipe = AddRecipe();
                     Console.WriteLine(starLine);
@@ -43,6 +49,8 @@ internal class Program
                     break;
 
                 case 2:
+
+                    // Only runs if a recipe has been added, displays recipe details
                     if (recipeAdded)
                     {
                         recipe.PrintDetails();
@@ -51,6 +59,8 @@ internal class Program
                     break;
 
                 case 3:
+
+                    // Only runs if a recipe has been added, factoring
                     if (recipeAdded)
                     {
                         Console.WriteLine(starLine);
@@ -64,6 +74,7 @@ internal class Program
                         int scaleChoice = VerifyInput(scaleMenu, 1, 3);
                         Console.WriteLine(starLine);
 
+                        // Scales the ingredient quantities by the chosen factor
                         double scaleFactor = 0;
                         switch (scaleChoice)
                         {
@@ -80,11 +91,14 @@ internal class Program
                                 break;
                         }
                         recipe.Scale(scaleFactor);
+                        Console.WriteLine("Scaled successfully");
                         break;
                     }
                     break;
 
                 case 4:
+
+                    // Only runs if a recipe has been added, resets the quantity values to their original values
                     if (recipeAdded)
                     {
                         recipe.ResetIngredientValues();
@@ -94,6 +108,7 @@ internal class Program
                     break;
 
                 case 5:
+                    // Only runs if a recipe has been added, clears the recipe
                     if (recipeAdded)
                     {
                         recipe.ClearRecipe();
@@ -104,6 +119,7 @@ internal class Program
                     break;
 
                 case 6:
+                    // Terminates the program
                     Console.WriteLine("Program terminated");
                     Console.WriteLine(line);
                     running = false;
@@ -113,6 +129,8 @@ internal class Program
             {
                 Console.WriteLine("That function cannot be used until you add a recipe\n");
             }
+
+            // Resetting boolean values
             if (recipeDeleted)
             {
                 recipeDeleted = false;
@@ -123,11 +141,13 @@ internal class Program
         
     }
 
+    // Overloaded method, this version will ensure that an int input is greater than or equal to a specified number
     public static int VerifyInput(string prompt, int start)
     {
         bool validInput = false;
         int input;
 
+        // Method that will repeat until the entered input matches the condition
         do
         {
             input = GetIntInput(prompt);
@@ -144,11 +164,13 @@ internal class Program
         return input;
     }
 
+    // Overloaded method, this version will ensure that an int input is between two specified numbers
     public static int VerifyInput(string prompt, int start, int end)
     {
         bool validInput = false;
         int input;
 
+        // Method that will repeat until the entered input matches the condition
         do
         {
             input = GetIntInput(prompt);
@@ -165,11 +187,13 @@ internal class Program
         return input;
     }
 
+    // Method to handle int input
     public static int GetIntInput(string prompt)
     {
         bool validInput;
         int input;
 
+        // Method that will repeat until the entered input is a number
         do
         {
             Console.Write(prompt);
@@ -186,9 +210,10 @@ internal class Program
         return input;
     }
 
+    // Method to create a recipe object and fill in the attributes
     public static Recipe AddRecipe()
     {
-        Recipe recipe = new Recipe();
+        Recipe recipe = new Recipe(); // Creating the recipe object
         Console.Write("Enter recipe name: ");
         string recipeName = Console.ReadLine();
         recipe.RecipeName = recipeName;
@@ -197,6 +222,7 @@ internal class Program
         recipe.SetIngredientsLength(numberOfIngredients);
         Console.WriteLine();
 
+        // Loop to create all the ingredient objects and add them to the recipe
         for (int i = 0; i<numberOfIngredients; i++)
         {
             Console.WriteLine("-----------Enter ingredient details-------------");
@@ -207,7 +233,7 @@ internal class Program
 
             Console.Write("Unit of measurement: ");
             string ingredientUnitOfMeasurement = Console.ReadLine();
-            recipe.AddIngredient(ingredientName, ingredientQuantity, ingredientUnitOfMeasurement, i);
+            recipe.AddIngredient(ingredientName, ingredientQuantity, ingredientUnitOfMeasurement, i); // Method that will instantiate the ingredient object
             Console.WriteLine();
         }
 
@@ -216,6 +242,7 @@ internal class Program
         recipe.SetStepsLength(numberOfSteps);
         Console.WriteLine();
 
+        // Loop to create all the step objects and add them to the recipe
         for (int i = 0; i<numberOfSteps; i++)
         {
             Console.WriteLine("-----------Enter step details-------------");
@@ -226,7 +253,7 @@ internal class Program
             Console.Write("Step description: ");
             string stepDescription = Console.ReadLine();
 
-            recipe.AddStep(stepNumber, stepName, stepDescription, i);
+            recipe.AddStep(stepNumber, stepName, stepDescription, i); // Method that will instantiate the step object
             Console.WriteLine();
         }
         return recipe;
