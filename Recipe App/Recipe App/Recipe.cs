@@ -28,11 +28,10 @@
         }
 
         // Method to instantiate an Step
-        public void AddStep(int stepNumber, string name, string description, int index)
+        public void AddStep(int stepNumber, string description, int index)
         {
             Step step = new Step(stepNumber)
             {
-                StepName = name,
                 Description = description
             };
 

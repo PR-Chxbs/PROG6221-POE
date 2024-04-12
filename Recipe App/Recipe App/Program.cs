@@ -111,9 +111,31 @@ internal class Program
                     // Only runs if a recipe has been added, clears the recipe
                     if (recipeAdded)
                     {
-                        recipe.ClearRecipe();
-                        Console.WriteLine("Recipe cleared");
-                        recipeDeleted = true;
+                        string confirmationMenu = 
+                            "Are you sure" + "\n" +
+                            "1. Yes" + "\n" +
+                            "2. No" + "\n" +
+                            ": ";
+
+                        // Confirming if the user wants to clear the recipe
+                        int confirmationChoice = GetIntInput(confirmationMenu);
+                        switch (confirmationChoice)
+                        {
+                            case 1:
+                                recipe.ClearRecipe();
+                                Console.WriteLine("Recipe cleared");
+                                recipeDeleted = true;
+                                break;
+
+                            case 2:
+                                Console.WriteLine("Cancelled");
+                                break;
+
+                            default:
+                                Console.WriteLine(ColorText("Invalid input", "red"));
+                                break;
+                        }
+                        
                         break;
                     }
                     break;
@@ -245,15 +267,13 @@ internal class Program
         // Loop to create all the step objects and add them to the recipe
         for (int i = 0; i<numberOfSteps; i++)
         {
-            Console.WriteLine($"-----------{ColorText("Enter step details", "magenta")}-------------");
             int stepNumber = i + 1;
-            Console.Write("Name: ");
-            string stepName = Console.ReadLine();
+            Console.WriteLine($"-----------{ColorText($"Step {stepNumber}", "magenta")}-------------");
 
             Console.Write("Step description: ");
             string stepDescription = Console.ReadLine();
 
-            recipe.AddStep(stepNumber, stepName, stepDescription, i); // Method that will instantiate the step object
+            recipe.AddStep(stepNumber, stepDescription, i); // Method that will instantiate the step object
             Console.WriteLine();
         }
         return recipe;
