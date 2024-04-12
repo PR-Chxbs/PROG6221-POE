@@ -258,4 +258,104 @@ internal class Program
         }
         return recipe;
     }
+
+    public static string ColorText(string text, string color)
+    {
+        string coloredText = "";
+        switch (color)
+        {
+            case "red":
+                coloredText = $"\u001b[31m{text}\u001b[0m";
+                break;
+
+            case "green":
+                coloredText = $"\u001b[32m{text}\u001b[0m";
+                break;
+
+            case "yellow":
+                coloredText = $"\u001b[33m{text}\u001b[0m";
+                break;
+
+            case "blue":
+                coloredText = $"\u001b[34m{text}\u001b[0m";
+                break;
+
+            case "magenta":
+                coloredText = $"\u001b[35m{text}\u001b[0m";
+                break;
+
+            case "cyan":
+                coloredText = $"\u001b[36m{text}\u001b[0m";
+                break;
+
+            default:
+                coloredText = text;
+                break;
+        }
+        return coloredText;
+    }
+
+    public static string ColorText(double text, string color)
+    {
+        string coloredText = "";
+        switch (color)
+        {
+            case "red":
+                coloredText = $"\u001b[31m{text}\u001b[0m";
+                break;
+
+            case "green":
+                coloredText = $"\u001b[32m{text}\u001b[0m";
+                break;
+
+            case "yellow":
+                coloredText = $"\u001b[33m{text}\u001b[0m";
+                break;
+
+            case "blue":
+                coloredText = $"\u001b[34m{text}\u001b[0m";
+                break;
+
+            case "magenta":
+                coloredText = $"\u001b[35m{text}\u001b[0m";
+                break;
+
+            case "cyan":
+                coloredText = $"\u001b[36m{text}\u001b[0m";
+                break;
+        }
+        return coloredText;
+    }
+
+    public static string ColorText(int text, string color)
+    {
+        string coloredText = "";
+        switch (color)
+        {
+            case "red":
+                coloredText = $"\u001b[31m{text}\u001b[0m";
+                break;
+
+            case "green":
+                coloredText = $"\u001b[32m{text}\u001b[0m";
+                break;
+
+            case "yellow":
+                coloredText = $"\u001b[33m{text}\u001b[0m";
+                break;
+
+            case "blue":
+                coloredText = $"\u001b[34m{text}\u001b[0m";
+                break;
+
+            case "magenta":
+                coloredText = $"\u001b[35m{text}\u001b[0m";
+                break;
+
+            case "cyan":
+                coloredText = $"\u001b[36m{text}\u001b[0m";
+                break;
+        }
+        return coloredText;
+    }
 }
