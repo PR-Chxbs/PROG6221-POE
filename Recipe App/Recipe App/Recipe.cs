@@ -54,27 +54,27 @@
             // Creating output for ingredient details
             foreach (Ingredient ingredient in ingredients)
             {
-                ingredientsString += $"- {ingredient.Quantity} {ingredient.UnitOfMeasurement} of {ingredient.Name}\n";
+                ingredientsString += $"- {ColorText(ingredient.Quantity, "magenta")} {ColorText(ingredient.UnitOfMeasurement, "yellow")} of {ingredient.Name}\n";
             }
 
             // Creating output for step details
             foreach (Step step in Steps)
             {
-                stepString += $"{step.StepNumber}. {step.Description}\n";
+                stepString += $"{ColorText(step.StepNumber, "magenta")}. {step.Description}\n";
             }
 
             // Output template
             Console.WriteLine(
-                "==============================================" + "\n" + 
+                $"{ColorText("==============================================", "cyan")}" + "\n" + 
                 "**********************************************" + "\n" +
-                $"              {recipeName}" + "\n" +
+                $"              {ColorText(recipeName, "cyan")}" + "\n" +
                 "**********************************************" + "\n" +
                 "\n" +
                 $"{ColorText("Ingredients:", "red")}" + "\n" +
                 $"{ingredientsString}" + "\n" +
                 $"{ColorText("Steps:", "red")}" + "\n" +
                 $"{stepString}" +
-                "==============================================");
+                $"{ColorText("==============================================", "cyan")}");
         }
 
         // Method to scale ingredient quantities by a factor
@@ -151,6 +151,10 @@
 
                 case "cyan":
                     coloredText = $"\u001b[36m{text}\u001b[0m";
+                    break;
+
+                default:
+                    coloredText = text;
                     break;
             }
             return coloredText;

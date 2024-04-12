@@ -2,7 +2,7 @@
 
 internal class Program
 {
-    static string line = "===================================================";
+    static string line = $"{ColorText("===================================================", "cyan")}";
     static string starLine = "***************************************************";
     public static void Main(string[] args)
     {
@@ -15,13 +15,13 @@ internal class Program
         // String containing the menu content
         string menu = 
             $"{line}" + "\n" +
-            "Select an option:" + "\n" +
-            "1. Add Recipe Details" + "\n" +
-            "2. Display Recipe" + "\n" +
-            "3. Scale Recipe" + "\n"  +
-            "4. Reset Original Values" + "\n" +
-            "5. Clear Recipe" + "\n" +
-            "6. Quit" + "\n" +
+            $"{ColorText("Select an option:", "red")}" + "\n" +
+            $"{ColorText("1", "magenta")}. Add Recipe Details" + "\n" +
+            $"{ColorText("2", "magenta")}. Display Recipe" + "\n" +
+            $"{ColorText("3", "magenta")}. Scale Recipe" + "\n"  +
+            $"{ColorText("4", "magenta")}. Reset Original Values" + "\n" +
+            $"{ColorText("5", "magenta")}. Clear Recipe" + "\n" +
+            $"{ColorText("6", "magenta")}. Quit" + "\n" +
             ": ";
 
         // Main program loop
@@ -225,7 +225,7 @@ internal class Program
         // Loop to create all the ingredient objects and add them to the recipe
         for (int i = 0; i<numberOfIngredients; i++)
         {
-            Console.WriteLine("-----------Enter ingredient details-------------");
+            Console.WriteLine($"-----------{ColorText("Enter ingredient details", "magenta")}-------------");
             Console.Write("Name: ");
             string ingredientName = Console.ReadLine();
 
@@ -245,7 +245,7 @@ internal class Program
         // Loop to create all the step objects and add them to the recipe
         for (int i = 0; i<numberOfSteps; i++)
         {
-            Console.WriteLine("-----------Enter step details-------------");
+            Console.WriteLine($"-----------{ColorText("Enter step details", "magenta")}-------------");
             int stepNumber = i + 1;
             Console.Write("Name: ");
             string stepName = Console.ReadLine();
