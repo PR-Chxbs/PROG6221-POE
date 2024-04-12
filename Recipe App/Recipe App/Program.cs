@@ -31,6 +31,11 @@ internal class Program
             switch (choice)
             {
                 case 1:
+                    if (recipeAdded)
+                    {
+                        Console.WriteLine("Recipe already added");
+                        break;
+                    }
                     Console.WriteLine(starLine);
                     recipe = AddRecipe();
                     Console.WriteLine(starLine);
@@ -184,30 +189,36 @@ internal class Program
     public static Recipe AddRecipe()
     {
         Recipe recipe = new Recipe();
+        Console.Write("Enter recipe name: ");
+        string recipeName = Console.ReadLine();
+        recipe.RecipeName = recipeName;
 
         int numberOfIngredients = VerifyInput("Enter the number of ingredients: ", 1);
         recipe.SetIngredientsLength(numberOfIngredients);
+        Console.WriteLine();
 
         for (int i = 0; i<numberOfIngredients; i++)
         {
-            Console.WriteLine("-----------Enter recipe details-------------");
+            Console.WriteLine("-----------Enter ingredient details-------------");
             Console.Write("Name: ");
-            string recipeName = Console.ReadLine();
+            string ingredientName = Console.ReadLine();
 
-            int recipeQuantity = VerifyInput("Quantity: ", 0);
+            int ingredientQuantity = VerifyInput("Quantity: ", 0);
 
             Console.Write("Unit of measurement: ");
-            string recipeUnitOfMeasurement = Console.ReadLine();
-            recipe.AddIngredient(recipeName, recipeQuantity, recipeUnitOfMeasurement, i);
+            string ingredientUnitOfMeasurement = Console.ReadLine();
+            recipe.AddIngredient(ingredientName, ingredientQuantity, ingredientUnitOfMeasurement, i);
             Console.WriteLine();
         }
 
-
+        Console.WriteLine(starLine);
         int numberOfSteps = VerifyInput("Enter the number of steps: ", 1);
         recipe.SetStepsLength(numberOfSteps);
+        Console.WriteLine();
 
         for (int i = 0; i<numberOfSteps; i++)
         {
+            Console.WriteLine("-----------Enter step details-------------");
             int stepNumber = i + 1;
             Console.Write("Name: ");
             string stepName = Console.ReadLine();
