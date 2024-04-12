@@ -7,10 +7,13 @@
         private double originalQuantity;
         private string unitOfMeasurement;
 
+        // Method to reset quantity to the original quantity
         public void ResetQuantity()
         {
             quantity = originalQuantity;
         }
+
+        // Getters and setters for private attributes
         public string Name 
         { 
             get { return name; } 
