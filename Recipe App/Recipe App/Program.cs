@@ -2,13 +2,18 @@
 
 internal class Program
 {
+    static string line = "===================================================";
+    static string starLine = "***************************************************";
     public static void Main(string[] args)
     {
+        
         Recipe recipe = new Recipe();
         bool recipeAdded = false;
         bool running = true;
+        bool recipeDeleted = false;
 
         string menu = 
+            $"{line}" + "\n" +
             "Select an option:" + "\n" +
             "1. Add Recipe Details" + "\n" +
             "2. Display Recipe" + "\n" +
@@ -21,11 +26,14 @@ internal class Program
         do
         {
             int choice = VerifyInput(menu, 1, 6);
+            Console.WriteLine(line);
 
             switch (choice)
             {
                 case 1:
+                    Console.WriteLine(starLine);
                     recipe = AddRecipe();
+                    Console.WriteLine(starLine);
                     recipeAdded = true;
                     break;
 
@@ -40,6 +48,7 @@ internal class Program
                 case 3:
                     if (recipeAdded)
                     {
+                        Console.WriteLine(starLine);
                         string scaleMenu =
                             "Select an option:" + "\n" +
                             "1. Half" + "\n" +
@@ -48,6 +57,7 @@ internal class Program
                             ": ";
 
                         int scaleChoice = VerifyInput(scaleMenu, 1, 3);
+                        Console.WriteLine(starLine);
 
                         double scaleFactor = 0;
                         switch (scaleChoice)
@@ -73,6 +83,7 @@ internal class Program
                     if (recipeAdded)
                     {
                         recipe.ResetIngredientValues();
+                        Console.WriteLine("Values reset to original");
                         break;
                     }
                     break;
@@ -81,18 +92,26 @@ internal class Program
                     if (recipeAdded)
                     {
                         recipe.ClearRecipe();
-                        recipeAdded = false;
+                        Console.WriteLine("Recipe cleared");
+                        recipeDeleted = true;
                         break;
                     }
                     break;
 
                 case 6:
+                    Console.WriteLine("Program terminated");
+                    Console.WriteLine(line);
                     running = false;
                     break;
             }
             if (!recipeAdded && running)
             {
                 Console.WriteLine("That function cannot be used until you add a recipe\n");
+            }
+            if (recipeDeleted)
+            {
+                recipeDeleted = false;
+                recipeAdded = false;
             }
         } while (running);
 
@@ -171,6 +190,7 @@ internal class Program
 
         for (int i = 0; i<numberOfIngredients; i++)
         {
+            Console.WriteLine("-----------Enter recipe details-------------");
             Console.Write("Name: ");
             string recipeName = Console.ReadLine();
 
@@ -179,6 +199,7 @@ internal class Program
             Console.Write("Unit of measurement: ");
             string recipeUnitOfMeasurement = Console.ReadLine();
             recipe.AddIngredient(recipeName, recipeQuantity, recipeUnitOfMeasurement, i);
+            Console.WriteLine();
         }
 
 
@@ -195,6 +216,7 @@ internal class Program
             string stepDescription = Console.ReadLine();
 
             recipe.AddStep(stepNumber, stepName, stepDescription, i);
+            Console.WriteLine();
         }
         return recipe;
     }
