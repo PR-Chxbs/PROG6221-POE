@@ -5,19 +5,20 @@ ST10310050
 Wahina Prince Chabalala
 PROG6221 POE Part 1
 ======================================================================
+# FilePath
 To run the program, open the project using Visual Studio
 
 The project file's path from this directory is:
 
-.\Recipe App\Recipe App.sln
+`.\Recipe App\Recipe App.sln`
 
 All the project source code is in:
 
-.\Recipe App\Recipe App\
+`.\Recipe App\Recipe App\`
 
 The file which you need to run is:
 
-.\Recipe App\Recipe App\Program.cs
+`.\Recipe App\Recipe App\Program.cs`
 
 ======================================================================
 
@@ -26,7 +27,7 @@ Do not move any of the files found in this repository otherwise the code may not
 Run it in its current state and arrangement.
 
 ======================================================================
-
+# Usage
 When you run the code, you will be presented with a menu that looks something likes this:
 
 Select an option:
