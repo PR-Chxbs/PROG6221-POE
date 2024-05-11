@@ -6,12 +6,37 @@ internal class Program
     static string starLine = "***************************************************";
     public static void Main(string[] args)
     {
-        
+        List<Recipe> recipes = new List<Recipe>(); // List containing all recipes to be added
         Recipe recipe = new Recipe(); // Placeholder recipe object
         bool recipeAdded = false;
         bool running = true;
         bool recipeDeleted = false;
 
+        string menuR =
+            $"{line}" + "\n" +
+            $"Select an option:" + "\n" +
+            $"1. Add new recipe" + "\n" +
+            $"2. View all recipes" + "\n" +
+            $"3. Quit";
+
+        int choiceR = VerifyInput(menuR, 1, 3);
+        switch (choiceR)
+        {
+            case 1:
+                recipe = AddRecipe();
+                recipes.Add(recipe);
+                break;
+
+            case 2:
+                if (recipeAdded)
+                {
+
+                }
+                break;
+
+            case 3:
+                break;
+        }
         // String containing the menu content
         string menu = 
             $"{line}" + "\n" +
@@ -277,6 +302,30 @@ internal class Program
             Console.WriteLine();
         }
         return recipe;
+    }
+
+    public static Recipe[] SortAllRecipes(List<Recipe> recipes)
+    {
+        int listSize = recipes.Count;
+        string[] recipeNames = new string[listSize];
+        Recipe[] sortedRecipes = new Recipe[listSize];
+
+        for (int i = 0; i<listSize; i++)
+        {
+            Recipe recipe = recipes[i];
+            recipeNames[i] = recipe.RecipeName;
+        }
+
+        Array.Sort(recipeNames);
+
+        for (int i = 0; i < listSize; i++)
+        {
+            Recipe recipe = recipes[i];
+            int index = Array.IndexOf(recipeNames, recipe.RecipeName);
+            sortedRecipes[i] = recipes[index];
+        }
+
+        return sortedRecipes;
     }
 
     public static string ColorText(string text, string color)
