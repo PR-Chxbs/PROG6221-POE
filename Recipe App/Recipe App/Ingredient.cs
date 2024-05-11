@@ -6,6 +6,7 @@
         private double quantity;
         private double originalQuantity;
         private string unitOfMeasurement;
+        private double calories;
 
         // Method to reset quantity to the original quantity
         public void ResetQuantity()
@@ -36,6 +37,12 @@
         {
             get { return unitOfMeasurement; }
             set { unitOfMeasurement = value; }
+        }
+
+        public double Calories
+        {
+            get { return calories; }
+            set { calories = value; }
         }
     }
 }
