@@ -44,153 +44,7 @@ internal class Program
             case 3:
                 break;
         }
-        // String containing the menu content
-        string menu = 
-            $"{line}" + "\n" +
-            $"{ColorText("Select an option:", "red")}" + "\n" +
-            $"{ColorText("1", "magenta")}. Add Recipe Details" + "\n" +
-            $"{ColorText("2", "magenta")}. Display Recipe" + "\n" +
-            $"{ColorText("3", "magenta")}. Scale Recipe" + "\n"  +
-            $"{ColorText("4", "magenta")}. Reset Original Values" + "\n" +
-            $"{ColorText("5", "magenta")}. Clear Recipe" + "\n" +
-            $"{ColorText("6", "magenta")}. Quit" + "\n" +
-            ": ";
-
-        // Main program loop
-        do
-        {
-            int choice = VerifyInput(menu, 1, 6);
-            Console.WriteLine(line);
-
-            // Executing code that corresponds with the users chosen option
-            switch (choice)
-            {
-                case 1:
-                    // If recipe already exists, display an error message and skip the rest of the code
-                    if (recipeAdded)
-                    {
-                        Console.WriteLine("Recipe already added");
-                        break;
-                    }
-
-                    // Add recipe
-                    Console.WriteLine(starLine);
-                    recipe = AddRecipe();
-                    Console.WriteLine(starLine);
-                    recipeAdded = true;
-                    break;
-
-                case 2:
-
-                    // Only runs if a recipe has been added, displays recipe details
-                    if (recipeAdded)
-                    {
-                        recipe.PrintDetails();
-                        break;
-                    }
-                    break;
-
-                case 3:
-
-                    // Only runs if a recipe has been added, factoring
-                    if (recipeAdded)
-                    {
-                        Console.WriteLine(starLine);
-                        string scaleMenu =
-                            "Select an option:" + "\n" +
-                            "1. Half" + "\n" +
-                            "2. Double" + "\n" +
-                            "3. Triple" +
-                            ": ";
-
-                        int scaleChoice = VerifyInput(scaleMenu, 1, 3);
-                        Console.WriteLine(starLine);
-
-                        // Scales the ingredient quantities by the chosen factor
-                        double scaleFactor = 0;
-                        switch (scaleChoice)
-                        {
-                            case 1:
-                                scaleFactor = 0.5;
-                                break;
-
-                            case 2:
-                                scaleFactor = 2;
-                                break;
-
-                            case 3:
-                                scaleFactor = 3;
-                                break;
-                        }
-                        recipe.Scale(scaleFactor);
-                        Console.WriteLine("Scaled successfully");
-                        break;
-                    }
-                    break;
-
-                case 4:
-
-                    // Only runs if a recipe has been added, resets the quantity values to their original values
-                    if (recipeAdded)
-                    {
-                        recipe.ResetIngredientValues();
-                        Console.WriteLine("Values reset to original");
-                        break;
-                    }
-                    break;
-
-                case 5:
-                    // Only runs if a recipe has been added, clears the recipe
-                    if (recipeAdded)
-                    {
-                        string confirmationMenu = 
-                            "Are you sure" + "\n" +
-                            "1. Yes" + "\n" +
-                            "2. No" + "\n" +
-                            ": ";
-
-                        // Confirming if the user wants to clear the recipe
-                        int confirmationChoice = GetIntInput(confirmationMenu);
-                        switch (confirmationChoice)
-                        {
-                            case 1:
-                                recipe.ClearRecipe();
-                                Console.WriteLine("Recipe cleared");
-                                recipeDeleted = true;
-                                break;
-
-                            case 2:
-                                Console.WriteLine("Cancelled");
-                                break;
-
-                            default:
-                                Console.WriteLine(ColorText("Invalid input", "red"));
-                                break;
-                        }
-                        
-                        break;
-                    }
-                    break;
-
-                case 6:
-                    // Terminates the program
-                    Console.WriteLine("Program terminated");
-                    Console.WriteLine(line);
-                    running = false;
-                    break;
-            }
-            if (!recipeAdded && running)
-            {
-                Console.WriteLine("That function cannot be used until you add a recipe\n");
-            }
-
-            // Resetting boolean values
-            if (recipeDeleted)
-            {
-                recipeDeleted = false;
-                recipeAdded = false;
-            }
-        } while (running);
+        
 
         
     }
@@ -348,6 +202,118 @@ internal class Program
             $"{x}. Back" + "\n" +
             ": ";
         return recipeNames;
+    }
+
+    public static Recipe RecipeManipulation(Recipe recipe)
+    {
+        bool running = true;
+        // String containing the menu content
+        string menu =
+            $"{line}" + "\n" +
+            $"{ColorText("Select an option:", "red")}" + "\n" +
+            $"{ColorText("1", "magenta")}. Display Recipe" + "\n" +
+            $"{ColorText("2", "magenta")}. Scale Recipe" + "\n" +
+            $"{ColorText("3", "magenta")}. Reset Original Values" + "\n" +
+            $"{ColorText("4", "magenta")}. Back to main menu" + "\n" +
+            ": ";
+
+        // Main program loop
+        do
+        {
+            int choice = VerifyInput(menu, 1, 6);
+            Console.WriteLine(line);
+
+            // Executing code that corresponds with the users chosen option
+            switch (choice)
+            {
+
+                case 1:
+
+                    // Only runs if a recipe has been added, displays recipe details
+                    recipe.PrintDetails();                   
+                    break;
+
+                case 2:
+
+                    Console.WriteLine(starLine);
+                    string scaleMenu =
+                        "Select an option:" + "\n" +
+                        "1. Half" + "\n" +
+                        "2. Double" + "\n" +
+                        "3. Triple" +
+                        ": ";
+
+                    int scaleChoice = VerifyInput(scaleMenu, 1, 3);
+                    Console.WriteLine(starLine);
+
+                    // Scales the ingredient quantities by the chosen factor
+                    double scaleFactor = 0;
+                    switch (scaleChoice)
+                    {
+                        case 1:
+                            scaleFactor = 0.5;
+                            break;
+
+                        case 2:
+                            scaleFactor = 2;
+                            break;
+
+                        case 3:
+                            scaleFactor = 3;
+                            break;
+                    }
+                    recipe.Scale(scaleFactor);
+                    Console.WriteLine("Scaled successfully");
+                    break;                    
+
+                case 3:
+                    // Resets the quantity values to their original values
+                    recipe.ResetIngredientValues();
+                    Console.WriteLine("Values reset to original");                 
+                    break;
+
+                /*case 4:
+                    // Only runs if a recipe has been added, clears the recipe
+                    if (recipeAdded)
+                    {
+                        string confirmationMenu =
+                            "Are you sure" + "\n" +
+                            "1. Yes" + "\n" +
+                            "2. No" + "\n" +
+                            ": ";
+
+                        // Confirming if the user wants to clear the recipe
+                        int confirmationChoice = GetIntInput(confirmationMenu);
+                        switch (confirmationChoice)
+                        {
+                            case 1:
+                                recipe.ClearRecipe();
+                                Console.WriteLine("Recipe cleared");
+                                recipeDeleted = true;
+                                break;
+
+                            case 2:
+                                Console.WriteLine("Cancelled");
+                                break;
+
+                            default:
+                                Console.WriteLine(ColorText("Invalid input", "red"));
+                                break;
+                        }
+
+                        break;
+                    }
+                    break;*/
+
+                case 4:
+                    // Terminates the program
+                    Console.WriteLine(line);
+                    running = false;
+                    break;
+            }
+        } while (running);
+
+        return recipe;
     }
 
     public static string ColorText(string text, string color)
