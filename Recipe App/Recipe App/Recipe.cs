@@ -104,7 +104,7 @@
             recipeName = string.Empty;
         }
 
-        // Getters and setters for privare attributes
+        // Getters and setters for private attributes
         public Ingredient[] Ingredients
         {
             get { return ingredients; }

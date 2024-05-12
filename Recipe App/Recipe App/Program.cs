@@ -10,7 +10,6 @@ internal class Program
         Recipe recipe = new Recipe(); // Placeholder recipe object
         bool recipeAdded = false;
         bool running = true;
-        bool recipeDeleted = false;
 
         string menuR =
             $"{line}" + "\n" +
@@ -19,31 +18,66 @@ internal class Program
             $"2. View all recipes" + "\n" +
             $"3. Quit";
 
-        int choiceR = VerifyInput(menuR, 1, 3);
-        switch (choiceR)
+        // Main program loop
+
+        do
         {
-            case 1:
-                recipe = AddRecipe();
-                recipes.Add(recipe);
-                break;
+            int choiceR = VerifyInput(menuR, 1, 3);
+            switch (choiceR)
+            {
+                case 1:
+                    recipe = AddRecipe();
+                    recipes.Add(recipe);
+                    recipeAdded = true;
+                    break;
 
-            case 2:
-                if (recipeAdded)
-                {
-                    Recipe[] sortedList = SortAllRecipes(recipes);
-                    string allRecipeMenu = AllRecipeNames(sortedList);
-                    int choiceP = VerifyInput(allRecipeMenu, 1, sortedList.Length);
-                    if (choiceP == (sortedList.Length + 1))
+                case 2:
+                    if (recipeAdded)
                     {
-                        break;
-                    }
-                    recipe = sortedList[choiceP-1];
-                }
-                break;
+                        Recipe[] sortedList = SortAllRecipes(recipes);
+                        string allRecipeMenu = AllRecipeNames(sortedList);
+                        int choiceP = VerifyInput(allRecipeMenu, 1, sortedList.Length);
 
-            case 3:
-                break;
-        }
+                        // Returns to main menu if last option is chosen
+                        if (choiceP == (sortedList.Length + 1))
+                        {
+                            break;
+                        }
+
+                        recipe = sortedList[choiceP - 1]; // Recipe the program will be working with
+                        recipe = RecipeManipulation(recipe);
+
+                        // Checking if the delete function was used
+                        if (recipe.RecipeName == string.Empty)
+                        {
+                            recipes.Remove(recipe);
+
+                            // Checking if all recipes have been removed
+                            if (recipes.Count == 0)
+                            {
+                                recipeAdded = false;
+                            }
+                        }
+                        else
+                        {
+                            // Changing the recipe in the list to match the modified one
+                            int recipeIndex = recipes.IndexOf(recipe);
+                            recipes[recipeIndex] = recipe;
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Add recipes first");
+                    }
+                    break;
+
+                case 3:
+                    Console.WriteLine("Program terminated");
+                    running = false;
+                    break;
+            }
+        } while (running);
+        
         
 
         
@@ -214,7 +248,8 @@ internal class Program
             $"{ColorText("1", "magenta")}. Display Recipe" + "\n" +
             $"{ColorText("2", "magenta")}. Scale Recipe" + "\n" +
             $"{ColorText("3", "magenta")}. Reset Original Values" + "\n" +
-            $"{ColorText("4", "magenta")}. Back to main menu" + "\n" +
+            $"{ColorText("4", "magenta")}. Delete recipe" + "\n" +
+            $"{ColorText("5", "magenta")}. Back to main menu" + "\n" +
             ": ";
 
         // Main program loop
@@ -272,40 +307,35 @@ internal class Program
                     Console.WriteLine("Values reset to original");                 
                     break;
 
-                /*case 4:
-                    // Only runs if a recipe has been added, clears the recipe
-                    if (recipeAdded)
-                    {
-                        string confirmationMenu =
-                            "Are you sure" + "\n" +
-                            "1. Yes" + "\n" +
-                            "2. No" + "\n" +
-                            ": ";
-
-                        // Confirming if the user wants to clear the recipe
-                        int confirmationChoice = GetIntInput(confirmationMenu);
-                        switch (confirmationChoice)
-                        {
-                            case 1:
-                                recipe.ClearRecipe();
-                                Console.WriteLine("Recipe cleared");
-                                recipeDeleted = true;
-                                break;
-
-                            case 2:
-                                Console.WriteLine("Cancelled");
-                                break;
-
-                            default:
-                                Console.WriteLine(ColorText("Invalid input", "red"));
-                                break;
-                        }
-
-                        break;
-                    }
-                    break;*/
-
                 case 4:
+                    // Deletes the recipe
+                    string confirmationMenu =
+                             "Are you sure" + "\n" +
+                             "1. Yes" + "\n" +
+                             "2. No" + "\n" +
+                             ": ";
+
+                    // Confirming if the user wants to clear the recipe
+                    int confirmationChoice = GetIntInput(confirmationMenu);
+                    switch (confirmationChoice)
+                    {
+                        case 1:
+                            recipe.ClearRecipe();
+                            Console.WriteLine("Recipe cleared");
+                            break;
+
+                        case 2:
+                            Console.WriteLine("Cancelled");
+                            break;
+
+                        default:
+                            Console.WriteLine(ColorText("Invalid input", "red"));
+                            break;
+                    }
+
+                    break;
+
+                case 5:
                     // Terminates the program
                     Console.WriteLine(line);
                     running = false;
