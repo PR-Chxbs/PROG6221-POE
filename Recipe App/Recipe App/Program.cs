@@ -30,7 +30,14 @@ internal class Program
             case 2:
                 if (recipeAdded)
                 {
-
+                    Recipe[] sortedList = SortAllRecipes(recipes);
+                    string allRecipeMenu = AllRecipeNames(sortedList);
+                    int choiceP = VerifyInput(allRecipeMenu, 1, sortedList.Length);
+                    if (choiceP == (sortedList.Length + 1))
+                    {
+                        break;
+                    }
+                    recipe = sortedList[choiceP-1];
                 }
                 break;
 
@@ -326,6 +333,21 @@ internal class Program
         }
 
         return sortedRecipes;
+    }
+
+    public static string AllRecipeNames(Recipe[] recipes)
+    {
+        string recipeNames = "Select an option:\n";
+        int x = 0;
+        for (int i = 0; i<recipes.Length; i++)
+        {
+            recipeNames += $"{i+1}. {recipes[i].RecipeName}\n";
+            x++;
+        }
+        recipeNames += 
+            $"{x}. Back" + "\n" +
+            ": ";
+        return recipeNames;
     }
 
     public static string ColorText(string text, string color)
