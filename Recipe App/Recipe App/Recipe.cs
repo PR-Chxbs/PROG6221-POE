@@ -3,8 +3,8 @@
     delegate void CaloriesNotification(double totalCalories);
     internal class Recipe
     {
-        private Ingredient[] ingredients;
-        private Step[] steps;
+        private List<Ingredient> ingredients = new List<Ingredient>();
+        private List<Step> steps = new List<Step>();
         private string recipeName;
         private double totalCalories = 0;
 
@@ -26,7 +26,7 @@
             };
 
             totalCalories += quantity;
-            ingredients[index] = ingredient;
+            ingredients.Add(ingredient);
 
             // Check if total calories exceed 300 and raise the event if necessary
             if (totalCalories > 300)
@@ -35,13 +35,7 @@
             }
         }
 
-        // Instantiate ingredients array
-        public void SetIngredientsLength(int length)
-        {
-            ingredients = new Ingredient[length];
-        }
-
-        // Method to instantiate an Step
+        // Method to add a step to the recipe
         public void AddStep(int stepNumber, string description, int index)
         {
             Step step = new Step(stepNumber)
@@ -49,14 +43,9 @@
                 Description = description
             };
 
-            Steps[index] = step;
+            Steps.Add(step);
         }
 
-        // Instantiate steps array
-        public void SetStepsLength(int length)
-        {
-            Steps = new Step[length];
-        }
 
         // Method to display recipe details
         public void PrintDetails()
@@ -116,8 +105,8 @@
         // Method to clear recipe
         public void ClearRecipe()
         {
-            ingredients = new Ingredient[0];
-            steps = new Step[0];
+            ingredients = new List<Ingredient>();
+            steps = new List<Step>();
             recipeName = string.Empty;
         }
 
@@ -133,13 +122,13 @@
         }
 
         // Getters and setters for private attributes
-        public Ingredient[] Ingredients
+        public List<Ingredient> Ingredients
         {
             get { return ingredients; }
             set { ingredients = value; }
         }
 
-        public Step[] Steps
+        public List<Step> Steps
         {
             get { return steps; }
             set { steps = value; }
