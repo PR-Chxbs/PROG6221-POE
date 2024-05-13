@@ -7,12 +7,14 @@
         private double originalQuantity;
         private string unitOfMeasurement;
         private double calories;
+        private double originalCalories;
         private string foodGroup;
 
         // Method to reset quantity to the original quantity
         public void ResetQuantity()
         {
             quantity = originalQuantity;
+            calories = originalCalories;
         }
 
         // Getters and setters for private attributes
@@ -44,6 +46,12 @@
         {
             get { return calories; }
             set { calories = value; }
+        }
+
+        public double OriginalCalories
+        {
+            get { return originalCalories; }
+            set { originalCalories = value; }
         }
 
         public string FoodGroup

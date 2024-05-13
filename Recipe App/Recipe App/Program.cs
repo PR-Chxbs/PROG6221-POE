@@ -13,10 +13,11 @@ internal class Program
 
         string menuR =
             $"{line}" + "\n" +
-            $"Select an option:" + "\n" +
-            $"1. Add new recipe" + "\n" +
-            $"2. View all recipes" + "\n" +
-            $"3. Quit";
+             "Select an option:" + "\n" +
+             "1. Add new recipe" + "\n" +
+             "2. View all recipes" + "\n" +
+             "3. Quit" + "\n" +
+             ": ";
 
         // Main program loop
 
@@ -76,11 +77,7 @@ internal class Program
                     running = false;
                     break;
             }
-        } while (running);
-        
-        
-
-        
+        } while (running);     
     }
 
     // Overloaded method, this version will ensure that an int input is greater than or equal to a specified number
@@ -172,10 +169,13 @@ internal class Program
             string ingredientName = Console.ReadLine();
 
             int ingredientQuantity = VerifyInput("Quantity: ", 0);
-
             Console.Write("Unit of measurement: ");
             string ingredientUnitOfMeasurement = Console.ReadLine();
-            recipe.AddIngredient(ingredientName, ingredientQuantity, ingredientUnitOfMeasurement, i); // Method that will instantiate the ingredient object
+            double ingredientCalories = VerifyInput("Calories: ", 0);
+            Console.Write("Food group: ");
+            string foodGroup = Console.ReadLine();
+
+            recipe.AddIngredient(ingredientName, ingredientQuantity, ingredientUnitOfMeasurement, ingredientCalories, foodGroup, i); // Method that will instantiate the ingredient object
             Console.WriteLine();
         }
 
