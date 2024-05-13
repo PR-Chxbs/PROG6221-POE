@@ -158,7 +158,6 @@ internal class Program
         recipe.RecipeName = recipeName;
 
         int numberOfIngredients = VerifyInput("Enter the number of ingredients: ", 1);
-        recipe.SetIngredientsLength(numberOfIngredients);
         Console.WriteLine();
 
         // Loop to create all the ingredient objects and add them to the recipe
@@ -181,7 +180,6 @@ internal class Program
 
         Console.WriteLine(starLine);
         int numberOfSteps = VerifyInput("Enter the number of steps: ", 1);
-        recipe.SetStepsLength(numberOfSteps);
         Console.WriteLine();
 
         // Loop to create all the step objects and add them to the recipe
