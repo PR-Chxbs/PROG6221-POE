@@ -1,11 +1,15 @@
 ﻿namespace Recipe_App
 {
+    delegate void CaloriesNotification(double totalCalories);
     internal class Recipe
     {
         private Ingredient[] ingredients;
         private Step[] steps;
         private string recipeName;
         private double totalCalories = 0;
+
+        // Event to notify when total calories exceed 300
+        public event CaloriesNotification TotalCaloriesExceeded;
 
         // Method to instantiate an Ingredient
         public void AddIngredient(string name, int quantity, string unitOfMeasurement, double calories, string foodGroup, int index)
@@ -23,6 +27,12 @@
 
             totalCalories += quantity;
             ingredients[index] = ingredient;
+
+            // Check if total calories exceed 300 and raise the event if necessary
+            if (totalCalories > 300)
+            {
+                TotalCaloriesExceeded?.Invoke(totalCalories);
+            }
         }
 
         // Instantiate ingredients array
