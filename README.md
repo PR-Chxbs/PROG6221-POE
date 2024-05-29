@@ -58,3 +58,12 @@ Additionally you can choose to clear the recipe so that you can enter new recipe
 The application runs up until you have decided to quit by entering 6 in the main menu ``(option 6)``.
 
 ======================================================================
+
+Updates
+
+Added part 2 Functionality
+
+- Unlimited recipes
+- Added calories to the ingredients
+- Added food groups
+- Changed arrays to generic collections

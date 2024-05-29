@@ -25,7 +25,7 @@
                 FoodGroup = foodGroup
             };
 
-            totalCalories += quantity;
+            totalCalories += calories;
             ingredients.Add(ingredient);
 
             // Check if total calories exceed 300 and raise the event if necessary
@@ -68,14 +68,16 @@
             // Output template
             Console.WriteLine(
                 $"{ColorText("==============================================", "cyan")}" + "\n" + 
-                "**********************************************" + "\n" +
+                 "**********************************************" + "\n" +
                 $"              {ColorText(recipeName, "cyan")}" + "\n" +
-                "**********************************************" + "\n" +
-                "\n" +
+                 "**********************************************" + "\n" +
+                 "\n" +
                 $"{ColorText("Ingredients:", "red")}" + "\n" +
                 $"{ingredientsString}" + "\n" +
                 $"{ColorText("Steps:", "red")}" + "\n" +
                 $"{stepString}" +
+                 "**********************************************" + "\n" +
+                $"Total Calories: {totalCalories}" + "\n" +
                 $"{ColorText("==============================================", "cyan")}");
         }
 

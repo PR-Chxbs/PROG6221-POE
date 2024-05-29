@@ -11,7 +11,7 @@ internal class Program
         bool recipeAdded = false;
         bool running = true;
 
-        string menuR =
+        string menu =
             $"{line}" + "\n" +
              "Select an option:" + "\n" +
              "1. Add new recipe" + "\n" +
@@ -23,8 +23,10 @@ internal class Program
 
         do
         {
-            int choiceR = VerifyInput(menuR, 1, 3);
-            switch (choiceR)
+            
+            int choice = VerifyInput(menu, 1, 3);
+            Console.WriteLine(line);
+            switch (choice)
             {
                 case 1:
                     recipe = AddRecipe();
@@ -37,15 +39,15 @@ internal class Program
                     {
                         Recipe[] sortedList = SortAllRecipes(recipes);
                         string allRecipeMenu = AllRecipeNames(sortedList);
-                        int choiceP = VerifyInput(allRecipeMenu, 1, sortedList.Length);
+                        int recipeChoice = VerifyInput(allRecipeMenu, 1, (sortedList.Length + 1));
 
                         // Returns to main menu if last option is chosen
-                        if (choiceP == (sortedList.Length + 1))
+                        if (recipeChoice == (sortedList.Length + 1))
                         {
                             break;
                         }
 
-                        recipe = sortedList[choiceP - 1]; // Recipe the program will be working with
+                        recipe = sortedList[recipeChoice - 1]; // Recipe the program will be working with
                         recipe = RecipeManipulation(recipe);
 
                         // Checking if the delete function was used
@@ -153,6 +155,10 @@ internal class Program
     public static Recipe AddRecipe()
     {
         Recipe recipe = new Recipe(); // Creating the recipe object
+
+        // Subscribing to the TotalCaloriesExceeded event
+        recipe.TotalCaloriesExceeded += HandleTotalCaloriesExceeded;
+
         Console.Write("Enter recipe name: ");
         string recipeName = Console.ReadLine();
         recipe.RecipeName = recipeName;
@@ -197,6 +203,13 @@ internal class Program
         return recipe;
     }
 
+    // Event handler for the TotalCaloriesExceeded event
+    static void HandleTotalCaloriesExceeded(double totalCalories)
+    {
+        Console.WriteLine($"{ColorText("Total calories exceeded 300", "red")}");
+        Console.WriteLine($"Total calories: {totalCalories}");
+    }
+
     public static Recipe[] SortAllRecipes(List<Recipe> recipes)
     {
         int listSize = recipes.Count;
@@ -224,7 +237,7 @@ internal class Program
     public static string AllRecipeNames(Recipe[] recipes)
     {
         string recipeNames = "Select an option:\n";
-        int x = 0;
+        int x = 1;
         for (int i = 0; i<recipes.Length; i++)
         {
             recipeNames += $"{i+1}. {recipes[i].RecipeName}\n";
