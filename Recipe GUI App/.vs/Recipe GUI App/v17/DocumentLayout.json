@@ -1,0 +1,53 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\wahin\\OneDrive - ADvTECH Ltd\\Rosebank College\\2024\\PROG6221\\PROG6221-POE\\Recipe GUI App\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{9E9F4B64-1539-4BA8-99AE-9238897300D5}|Recipe GUI App\\Recipe GUI App.csproj|c:\\users\\wahin\\onedrive - advtech ltd\\rosebank college\\2024\\prog6221\\prog6221-poe\\recipe gui app\\recipe gui app\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{9E9F4B64-1539-4BA8-99AE-9238897300D5}|Recipe GUI App\\Recipe GUI App.csproj|solutionrelative:recipe gui app\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9E9F4B64-1539-4BA8-99AE-9238897300D5}|Recipe GUI App\\Recipe GUI App.csproj|c:\\users\\wahin\\onedrive - advtech ltd\\rosebank college\\2024\\prog6221\\prog6221-poe\\recipe gui app\\recipe gui app\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9E9F4B64-1539-4BA8-99AE-9238897300D5}|Recipe GUI App\\Recipe GUI App.csproj|solutionrelative:recipe gui app\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\wahin\\OneDrive - ADvTECH Ltd\\Rosebank College\\2024\\PROG6221\\PROG6221-POE\\Recipe GUI App\\Recipe GUI App\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "Recipe GUI App\\MainWindow.xaml",
+              "ToolTip": "C:\\Users\\wahin\\OneDrive - ADvTECH Ltd\\Rosebank College\\2024\\PROG6221\\PROG6221-POE\\Recipe GUI App\\Recipe GUI App\\MainWindow.xaml",
+              "RelativeToolTip": "Recipe GUI App\\MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-06-06T21:15:21.425Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\wahin\\OneDrive - ADvTECH Ltd\\Rosebank College\\2024\\PROG6221\\PROG6221-POE\\Recipe GUI App\\Recipe GUI App\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "Recipe GUI App\\MainWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\wahin\\OneDrive - ADvTECH Ltd\\Rosebank College\\2024\\PROG6221\\PROG6221-POE\\Recipe GUI App\\Recipe GUI App\\MainWindow.xaml.cs",
+              "RelativeToolTip": "Recipe GUI App\\MainWindow.xaml.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-06T21:15:21.31Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
