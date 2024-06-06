@@ -2,7 +2,7 @@
 
 internal class Program
 {
-    static string line = $"{ColorText("===================================================", "cyan")}";
+    static string line = $"===================================================";
     static string starLine = "***************************************************";
     public static void Main(string[] args)
     {
@@ -169,7 +169,7 @@ internal class Program
         // Loop to create all the ingredient objects and add them to the recipe
         for (int i = 0; i<numberOfIngredients; i++)
         {
-            Console.WriteLine($"-----------{ColorText("Enter ingredient details", "magenta")}-------------");
+            Console.WriteLine("Enter ingredient details");
             Console.Write("Name: ");
             string ingredientName = Console.ReadLine();
 
@@ -192,7 +192,7 @@ internal class Program
         for (int i = 0; i<numberOfSteps; i++)
         {
             int stepNumber = i + 1;
-            Console.WriteLine($"-----------{ColorText($"Step {stepNumber}", "magenta")}-------------");
+            Console.WriteLine($"Step {stepNumber}");
 
             Console.Write("Step description: ");
             string stepDescription = Console.ReadLine();
@@ -206,7 +206,7 @@ internal class Program
     // Event handler for the TotalCaloriesExceeded event
     static void HandleTotalCaloriesExceeded(double totalCalories)
     {
-        Console.WriteLine($"{ColorText("Total calories exceeded 300", "red")}");
+        Console.WriteLine("Total calories exceeded 300");
         Console.WriteLine($"Total calories: {totalCalories}");
     }
 
@@ -255,12 +255,12 @@ internal class Program
         // String containing the menu content
         string menu =
             $"{line}" + "\n" +
-            $"{ColorText("Select an option:", "red")}" + "\n" +
-            $"{ColorText("1", "magenta")}. Display Recipe" + "\n" +
-            $"{ColorText("2", "magenta")}. Scale Recipe" + "\n" +
-            $"{ColorText("3", "magenta")}. Reset Original Values" + "\n" +
-            $"{ColorText("4", "magenta")}. Delete recipe" + "\n" +
-            $"{ColorText("5", "magenta")}. Back to main menu" + "\n" +
+            $"Select an option:" + "\n" +
+            $"1. Display Recipe" + "\n" +
+            $"2. Scale Recipe" + "\n" +
+            $"3. Reset Original Values" + "\n" +
+            $"4. Delete recipe" + "\n" +
+            $"5. Back to main menu" + "\n" +
             ": ";
 
         // Main program loop
@@ -340,7 +340,7 @@ internal class Program
                             break;
 
                         default:
-                            Console.WriteLine(ColorText("Invalid input", "red"));
+                            Console.WriteLine("Invalid input");
                             break;
                     }
 
@@ -355,105 +355,5 @@ internal class Program
         } while (running);
 
         return recipe;
-    }
-
-    public static string ColorText(string text, string color)
-    {
-        string coloredText = "";
-        switch (color)
-        {
-            case "red":
-                coloredText = $"\u001b[31m{text}\u001b[0m";
-                break;
-
-            case "green":
-                coloredText = $"\u001b[32m{text}\u001b[0m";
-                break;
-
-            case "yellow":
-                coloredText = $"\u001b[33m{text}\u001b[0m";
-                break;
-
-            case "blue":
-                coloredText = $"\u001b[34m{text}\u001b[0m";
-                break;
-
-            case "magenta":
-                coloredText = $"\u001b[35m{text}\u001b[0m";
-                break;
-
-            case "cyan":
-                coloredText = $"\u001b[36m{text}\u001b[0m";
-                break;
-
-            default:
-                coloredText = text;
-                break;
-        }
-        return coloredText;
-    }
-
-    public static string ColorText(double text, string color)
-    {
-        string coloredText = "";
-        switch (color)
-        {
-            case "red":
-                coloredText = $"\u001b[31m{text}\u001b[0m";
-                break;
-
-            case "green":
-                coloredText = $"\u001b[32m{text}\u001b[0m";
-                break;
-
-            case "yellow":
-                coloredText = $"\u001b[33m{text}\u001b[0m";
-                break;
-
-            case "blue":
-                coloredText = $"\u001b[34m{text}\u001b[0m";
-                break;
-
-            case "magenta":
-                coloredText = $"\u001b[35m{text}\u001b[0m";
-                break;
-
-            case "cyan":
-                coloredText = $"\u001b[36m{text}\u001b[0m";
-                break;
-        }
-        return coloredText;
-    }
-
-    public static string ColorText(int text, string color)
-    {
-        string coloredText = "";
-        switch (color)
-        {
-            case "red":
-                coloredText = $"\u001b[31m{text}\u001b[0m";
-                break;
-
-            case "green":
-                coloredText = $"\u001b[32m{text}\u001b[0m";
-                break;
-
-            case "yellow":
-                coloredText = $"\u001b[33m{text}\u001b[0m";
-                break;
-
-            case "blue":
-                coloredText = $"\u001b[34m{text}\u001b[0m";
-                break;
-
-            case "magenta":
-                coloredText = $"\u001b[35m{text}\u001b[0m";
-                break;
-
-            case "cyan":
-                coloredText = $"\u001b[36m{text}\u001b[0m";
-                break;
-        }
-        return coloredText;
     }
 }
