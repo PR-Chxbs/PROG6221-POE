@@ -1,6 +1,6 @@
 ﻿namespace Recipe_App
 {
-    internal class Step
+    public class Step
     {
         private int stepNumber;
         private string description;

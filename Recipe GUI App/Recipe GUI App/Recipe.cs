@@ -1,7 +1,7 @@
 ﻿namespace Recipe_App
 {
     delegate void CaloriesNotification(double totalCalories);
-    internal class Recipe
+    public class Recipe
     {
         private List<Ingredient> ingredients = new List<Ingredient>();
         private List<Step> steps = new List<Step>();

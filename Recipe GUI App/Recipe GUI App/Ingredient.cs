@@ -1,6 +1,6 @@
 ﻿namespace Recipe_App
 {
-    internal class Ingredient
+    public class Ingredient
     {
         private string name;
         private double quantity;
