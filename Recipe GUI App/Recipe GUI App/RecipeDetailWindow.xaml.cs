@@ -1,47 +1,44 @@
-﻿using Recipe_GUI_App;
-using System.Windows;
+﻿using System.Windows;
+using System.Windows.Controls;
 
 namespace Recipe_GUI_App
 {
     public partial class RecipeDetailWindow : Window
     {
-        private Recipe recipe;
-
         public RecipeDetailWindow(Recipe recipe)
         {
             InitializeComponent();
-            this.recipe = recipe;
-            LoadRecipeDetails();
+            DisplayRecipeDetails(recipe);
         }
 
-        private void LoadRecipeDetails()
+        private void DisplayRecipeDetails(Recipe recipe)
         {
-            RecipeDetailsTextBlock.Text = recipe.ToString(); // Assuming you have a ToString() method in Recipe class that formats the recipe details
-        }
+            RecipeNameTextBox.Text = recipe.RecipeName;
 
-        private void ScaleRecipe_Click(object sender, RoutedEventArgs e)
-        {
-            if (double.TryParse(ScaleFactorTextBox.Text, out double scaleFactor))
+            // Display ingredients
+            foreach (var ingredient in recipe.Ingredients)
             {
-                recipe.Scale(scaleFactor);
-                LoadRecipeDetails();
+                IngredientsStackPanel.Children.Add(new TextBlock
+                {
+                    Text = $"{ingredient.Quantity} {ingredient.UnitOfMeasurement} of {ingredient.Name} ({ingredient.Calories} calories) ({ingredient.FoodGroup})"
+                });
             }
-            else
+
+            // Display steps
+            foreach (var step in recipe.Steps)
             {
-                MessageBox.Show("Invalid scale factor.");
+                StepsStackPanel.Children.Add(new TextBlock
+                {
+                    Text = $"{step.StepNumber}. {step.Description}"
+                });
             }
+
+            // Display total calories
+            TotalCaloriesTextBox.Text = recipe.TotalCalories.ToString();
         }
 
-        private void ResetRecipe_Click(object sender, RoutedEventArgs e)
+        private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
-            recipe.ResetIngredientValues();
-            LoadRecipeDetails();
-        }
-
-        private void DeleteRecipe_Click(object sender, RoutedEventArgs e)
-        {
-            RecipeRepository.Recipes.Remove(recipe);
-            MessageBox.Show("Recipe deleted.");
             this.Close();
         }
     }

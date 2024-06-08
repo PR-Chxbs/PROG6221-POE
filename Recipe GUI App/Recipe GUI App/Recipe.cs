@@ -1,6 +1,6 @@
 ﻿namespace Recipe_GUI_App
 {
-    delegate void CaloriesNotification(double totalCalories);
+    public delegate void CaloriesNotification(double totalCalories);
     public class Recipe
     {
         private List<Ingredient> ingredients = new List<Ingredient>();
