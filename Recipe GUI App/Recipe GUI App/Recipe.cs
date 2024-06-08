@@ -1,4 +1,4 @@
-﻿namespace Recipe_App
+﻿namespace Recipe_GUI_App
 {
     delegate void CaloriesNotification(double totalCalories);
     public class Recipe

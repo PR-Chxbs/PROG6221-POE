@@ -1,7 +1,4 @@
-﻿using Recipe_App;
-using RecipeApp;
-using System.Collections.Generic;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 
 namespace Recipe_GUI_App
@@ -12,7 +9,7 @@ namespace Recipe_GUI_App
 
         public AddRecipeWindow()
         {
-            InitializeComponent();
+            //InitializeComponent();
             currentRecipe = new Recipe();
         }
 

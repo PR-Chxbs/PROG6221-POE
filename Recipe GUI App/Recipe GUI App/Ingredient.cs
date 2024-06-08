@@ -1,4 +1,4 @@
-﻿namespace Recipe_App
+﻿namespace Recipe_GUI_App
 {
     public class Ingredient
     {

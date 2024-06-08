@@ -1,7 +1,6 @@
-﻿using Recipe_App;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
-namespace RecipeApp
+namespace Recipe_GUI_App
 {
     public static class RecipeRepository
     {

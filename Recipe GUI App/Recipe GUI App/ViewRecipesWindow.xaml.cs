@@ -1,27 +1,29 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Recipe_GUI_App;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace Recipe_GUI_App
 {
-    /// <summary>
-    /// Interaction logic for ViewRecipesWindow.xaml
-    /// </summary>
     public partial class ViewRecipesWindow : Window
     {
         public ViewRecipesWindow()
         {
             InitializeComponent();
+            LoadRecipes();
+        }
+
+        private void LoadRecipes()
+        {
+            RecipesListBox.ItemsSource = RecipeRepository.Recipes;
+        }
+
+        private void RecipesListBox_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            Recipe selectedRecipe = (Recipe)RecipesListBox.SelectedItem;
+            if (selectedRecipe != null)
+            {
+                RecipeDetailWindow recipeDetailWindow = new RecipeDetailWindow(selectedRecipe);
+                recipeDetailWindow.ShowDialog();
+            }
         }
     }
 }
