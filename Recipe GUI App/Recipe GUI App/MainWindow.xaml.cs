@@ -13,7 +13,7 @@ namespace RecipeApp
         private void AddRecipe_Click(object sender, RoutedEventArgs e)
         {
             AddRecipeWindow addRecipeWindow = new AddRecipeWindow();
-            addRecipeWindow.ShowDialog();
+            addRecipeWindow.Show();
         }
 
         private void ViewRecipes_Click(object sender, RoutedEventArgs e)

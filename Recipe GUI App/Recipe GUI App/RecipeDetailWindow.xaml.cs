@@ -1,44 +1,68 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace Recipe_GUI_App
 {
     public partial class RecipeDetailWindow : Window
     {
-        public RecipeDetailWindow(Recipe recipe)
+        private Recipe currentRecipe;
+        private int recipeIndex;
+
+        public RecipeDetailWindow(Recipe recipe, int index)
         {
             InitializeComponent();
-            DisplayRecipeDetails(recipe);
+            currentRecipe = recipe;
+            recipeIndex = index;
+            DisplayRecipeDetails();
         }
 
-        private void DisplayRecipeDetails(Recipe recipe)
+        private void DisplayRecipeDetails()
         {
-            RecipeNameTextBox.Text = recipe.RecipeName;
-
-            // Display ingredients
-            foreach (var ingredient in recipe.Ingredients)
+            RecipeNameTextBlock.Text = currentRecipe.RecipeName;
+            IngredientsStackPanel.Children.Clear();
+            foreach (var ingredient in currentRecipe.Ingredients)
             {
-                IngredientsStackPanel.Children.Add(new TextBlock
+                TextBlock ingredientTextBlock = new TextBlock
                 {
-                    Text = $"{ingredient.Quantity} {ingredient.UnitOfMeasurement} of {ingredient.Name} ({ingredient.Calories} calories) ({ingredient.FoodGroup})"
-                });
+                    Text = $"- {ingredient.Quantity} {ingredient.UnitOfMeasurement} of {ingredient.Name} ({ingredient.Calories} calories) ({ingredient.FoodGroup})"
+                };
+                IngredientsStackPanel.Children.Add(ingredientTextBlock);
             }
 
-            // Display steps
-            foreach (var step in recipe.Steps)
+            StepsStackPanel.Children.Clear();
+            foreach (var step in currentRecipe.Steps)
             {
-                StepsStackPanel.Children.Add(new TextBlock
+                TextBlock stepTextBlock = new TextBlock
                 {
                     Text = $"{step.StepNumber}. {step.Description}"
-                });
+                };
+                StepsStackPanel.Children.Add(stepTextBlock);
             }
 
-            // Display total calories
-            TotalCaloriesTextBox.Text = recipe.TotalCalories.ToString();
+            TotalCaloriesTextBlock.Text = currentRecipe.TotalCalories.ToString();
         }
 
-        private void CloseButton_Click(object sender, RoutedEventArgs e)
+        private void ScaleButton_Click(object sender, RoutedEventArgs e)
         {
+            ScaleRecipeWindow scaleWindow = new ScaleRecipeWindow(currentRecipe);
+            if (scaleWindow.ShowDialog() == true)
+            {
+                double scaleFactor = scaleWindow.ScaleFactor;
+                currentRecipe.Scale(scaleFactor);
+                DisplayRecipeDetails();
+            }
+        }
+
+        private void ResetButton_Click(object sender, RoutedEventArgs e)
+        {
+            currentRecipe.ResetIngredientValues();
+            DisplayRecipeDetails();
+        }
+
+        private void DeleteButton_Click(object sender, RoutedEventArgs e)
+        {
+            RecipeRepository.DeleteRecipe(recipeIndex);
             this.Close();
         }
     }
