@@ -1,0 +1,23 @@
+C:\Users\wahin\OneDrive - ADvTECH Ltd\Rosebank College\2024\PROG6221\PROG6221-POE\Recipe GUI App\Recipe GUI App\obj\Debug\net8.0-windows\MainWindow.g.cs
+C:\Users\wahin\OneDrive - ADvTECH Ltd\Rosebank College\2024\PROG6221\PROG6221-POE\Recipe GUI App\Recipe GUI App\obj\Debug\net8.0-windows\App.g.cs
+C:\Users\wahin\OneDrive - ADvTECH Ltd\Rosebank College\2024\PROG6221\PROG6221-POE\Recipe GUI App\Recipe GUI App\obj\Debug\net8.0-windows\Recipe GUI App_MarkupCompile.cache
+C:\Users\wahin\OneDrive - ADvTECH Ltd\Rosebank College\2024\PROG6221\PROG6221-POE\Recipe GUI App\Recipe GUI App\obj\Debug\net8.0-windows\Recipe GUI App_MarkupCompile.lref
+C:\Users\wahin\OneDrive - ADvTECH Ltd\Rosebank College\2024\PROG6221\PROG6221-POE\Recipe GUI App\Recipe GUI App\obj\Debug\net8.0-windows\AddRecipeWindow.g.cs
+C:\Users\wahin\OneDrive - ADvTECH Ltd\Rosebank College\2024\PROG6221\PROG6221-POE\Recipe GUI App\Recipe GUI App\bin\Debug\net8.0-windows\Recipe GUI App.exe
+C:\Users\wahin\OneDrive - ADvTECH Ltd\Rosebank College\2024\PROG6221\PROG6221-POE\Recipe GUI App\Recipe GUI App\bin\Debug\net8.0-windows\Recipe GUI App.deps.json
+C:\Users\wahin\OneDrive - ADvTECH Ltd\Rosebank College\2024\PROG6221\PROG6221-POE\Recipe GUI App\Recipe GUI App\bin\Debug\net8.0-windows\Recipe GUI App.runtimeconfig.json
+C:\Users\wahin\OneDrive - ADvTECH Ltd\Rosebank College\2024\PROG6221\PROG6221-POE\Recipe GUI App\Recipe GUI App\bin\Debug\net8.0-windows\Recipe GUI App.dll
+C:\Users\wahin\OneDrive - ADvTECH Ltd\Rosebank College\2024\PROG6221\PROG6221-POE\Recipe GUI App\Recipe GUI App\bin\Debug\net8.0-windows\Recipe GUI App.pdb
+C:\Users\wahin\OneDrive - ADvTECH Ltd\Rosebank College\2024\PROG6221\PROG6221-POE\Recipe GUI App\Recipe GUI App\obj\Debug\net8.0-windows\AddRecipeWindow.baml
+C:\Users\wahin\OneDrive - ADvTECH Ltd\Rosebank College\2024\PROG6221\PROG6221-POE\Recipe GUI App\Recipe GUI App\obj\Debug\net8.0-windows\MainWindow.baml
+C:\Users\wahin\OneDrive - ADvTECH Ltd\Rosebank College\2024\PROG6221\PROG6221-POE\Recipe GUI App\Recipe GUI App\obj\Debug\net8.0-windows\Recipe GUI App.g.resources
+C:\Users\wahin\OneDrive - ADvTECH Ltd\Rosebank College\2024\PROG6221\PROG6221-POE\Recipe GUI App\Recipe GUI App\obj\Debug\net8.0-windows\Recipe GUI App.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\wahin\OneDrive - ADvTECH Ltd\Rosebank College\2024\PROG6221\PROG6221-POE\Recipe GUI App\Recipe GUI App\obj\Debug\net8.0-windows\Recipe GUI App.AssemblyInfoInputs.cache
+C:\Users\wahin\OneDrive - ADvTECH Ltd\Rosebank College\2024\PROG6221\PROG6221-POE\Recipe GUI App\Recipe GUI App\obj\Debug\net8.0-windows\Recipe GUI App.AssemblyInfo.cs
+C:\Users\wahin\OneDrive - ADvTECH Ltd\Rosebank College\2024\PROG6221\PROG6221-POE\Recipe GUI App\Recipe GUI App\obj\Debug\net8.0-windows\Recipe GUI App.csproj.CoreCompileInputs.cache
+C:\Users\wahin\OneDrive - ADvTECH Ltd\Rosebank College\2024\PROG6221\PROG6221-POE\Recipe GUI App\Recipe GUI App\obj\Debug\net8.0-windows\Recipe GUI App.sourcelink.json
+C:\Users\wahin\OneDrive - ADvTECH Ltd\Rosebank College\2024\PROG6221\PROG6221-POE\Recipe GUI App\Recipe GUI App\obj\Debug\net8.0-windows\Recipe GUI App.dll
+C:\Users\wahin\OneDrive - ADvTECH Ltd\Rosebank College\2024\PROG6221\PROG6221-POE\Recipe GUI App\Recipe GUI App\obj\Debug\net8.0-windows\refint\Recipe GUI App.dll
+C:\Users\wahin\OneDrive - ADvTECH Ltd\Rosebank College\2024\PROG6221\PROG6221-POE\Recipe GUI App\Recipe GUI App\obj\Debug\net8.0-windows\Recipe GUI App.pdb
+C:\Users\wahin\OneDrive - ADvTECH Ltd\Rosebank College\2024\PROG6221\PROG6221-POE\Recipe GUI App\Recipe GUI App\obj\Debug\net8.0-windows\Recipe GUI App.genruntimeconfig.cache
+C:\Users\wahin\OneDrive - ADvTECH Ltd\Rosebank College\2024\PROG6221\PROG6221-POE\Recipe GUI App\Recipe GUI App\obj\Debug\net8.0-windows\ref\Recipe GUI App.dll

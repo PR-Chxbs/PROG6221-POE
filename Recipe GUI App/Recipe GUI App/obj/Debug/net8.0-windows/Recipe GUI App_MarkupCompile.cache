@@ -1,5 +1,5 @@
 ﻿Recipe GUI App
-1.0.0.0
+
 
 winexe
 C#
@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
 C:\Users\wahin\OneDrive - ADvTECH Ltd\Rosebank College\2024\PROG6221\PROG6221-POE\Recipe GUI App\Recipe GUI App\App.xaml
-31975453677
+21122509714
 
-111934480093
+81026028993
 1981451641563
-AddRecipeWindow.xaml;MainWindow.xaml;ViewRecipesWindow.xaml;
+AddRecipeWindow.xaml;MainWindow.xaml;
 
-True
+False
 
