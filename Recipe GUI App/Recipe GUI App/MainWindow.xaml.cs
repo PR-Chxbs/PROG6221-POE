@@ -1,7 +1,7 @@
 ﻿using Recipe_GUI_App;
 using System.Windows;
 
-namespace RecipeApp
+namespace Recipe_GUI_App
 {
     public partial class MainWindow : Window
     {
@@ -14,12 +14,14 @@ namespace RecipeApp
         {
             AddRecipeWindow addRecipeWindow = new AddRecipeWindow();
             addRecipeWindow.Show();
+            this.Close();
         }
 
         private void ViewRecipes_Click(object sender, RoutedEventArgs e)
         {
             ViewRecipesWindow viewRecipesWindow = new ViewRecipesWindow();
-            viewRecipesWindow.ShowDialog();
+            viewRecipesWindow.Show();
+            this.Close();
         }
 
         private void Quit_Click(object sender, RoutedEventArgs e)

@@ -76,7 +76,7 @@ namespace Recipe_GUI_App {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Recipe GUI App;component/scalerecipewindow.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Recipe GUI App;V1.0.0.0;component/scalerecipewindow.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\ScaleRecipeWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

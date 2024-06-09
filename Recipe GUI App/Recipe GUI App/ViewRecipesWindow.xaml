@@ -4,5 +4,8 @@
         Title="View Recipes" Height="450" Width="800">
     <Grid>
         <ListBox x:Name="RecipesListBox" Margin="10" SelectionChanged="RecipesListBox_SelectionChanged"/>
+        <StackPanel VerticalAlignment="Center">
+            <Button Name="BackButton" Content="Back" Width="70" Height="25" Click="BackButton_Click"/>
+        </StackPanel>
     </Grid>
 </Window>

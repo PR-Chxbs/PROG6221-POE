@@ -81,6 +81,11 @@
                 $"==============================================");
         }
 
+        public override string ToString()
+        {
+            return RecipeName;
+        }
+
         // Method to scale ingredient quantities by a factor
         public void Scale(double factor)
         {

@@ -1,7 +1,7 @@
 ﻿using Recipe_GUI_App;
-using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace Recipe_GUI_App
 {
@@ -16,25 +16,29 @@ namespace Recipe_GUI_App
         private void LoadRecipes()
         {
             // Sort recipes alphabetically by name
-            List<Recipe> sortedRecipes = RecipeRepository.Recipes.OrderBy(r => r.RecipeName).ToList();
+            var sortedRecipes = RecipeRepository.Recipes.OrderBy(recipe => recipe.RecipeName).ToList();
+
+            // Bind the sorted recipes to the ListBox
             RecipesListBox.ItemsSource = sortedRecipes;
         }
 
-        private void RecipesListBox_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        private void RecipesListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Recipe selectedRecipe = (Recipe)RecipesListBox.SelectedItem;
             if (selectedRecipe != null)
             {
-                // Get the index of the selected recipe in the sorted list
-                int selectedIndex = RecipesListBox.SelectedIndex;
-
-                // Fetch the corresponding recipe from the RecipeRepository using the index
-                Recipe correspondingRecipe = RecipeRepository.Recipes.OrderBy(r => r.RecipeName).ElementAt(selectedIndex);
-
-                // Create and show the RecipeDetailWindow
-                RecipeDetailWindow recipeDetailWindow = new RecipeDetailWindow(correspondingRecipe, selectedIndex);
+                RecipeDetailWindow recipeDetailWindow = new RecipeDetailWindow(selectedRecipe);
                 recipeDetailWindow.ShowDialog();
+                // Refresh the recipes list after a recipe might be deleted
+                LoadRecipes();
             }
+        }
+
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+            this.Close();
         }
     }
 }

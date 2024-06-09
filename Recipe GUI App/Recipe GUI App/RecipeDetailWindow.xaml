@@ -23,9 +23,10 @@
         </StackPanel>
 
         <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="10">
-            <Button x:Name="ScaleButton" Content="Scale Recipe" Margin="5" Click="ScaleButton_Click"/>
-            <Button x:Name="ResetButton" Content="Reset Recipe" Margin="5" Click="ResetButton_Click"/>
-            <Button x:Name="DeleteButton" Content="Delete Recipe" Margin="5" Click="DeleteButton_Click"/>
+            <Button x:Name="ScaleButton" Content="Scale Recipe" Margin="5" Click="ScaleButton_Click" Width="85"/>
+            <Button x:Name="ResetButton" Content="Reset Recipe" Margin="5" Click="ResetButton_Click" Width="85"/>
+            <Button x:Name="BackButton" Content="Back" Margin="5" Click="BackButton_Click" Width="85"/>
+            <Button x:Name="DeleteButton" Content="Delete Recipe" Margin="5" Click="DeleteButton_Click" Width="85"/>
         </StackPanel>
     </Grid>
 </Window>

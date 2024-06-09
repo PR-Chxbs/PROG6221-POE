@@ -1,5 +1,4 @@
-﻿using System;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 
 namespace Recipe_GUI_App
@@ -7,13 +6,11 @@ namespace Recipe_GUI_App
     public partial class RecipeDetailWindow : Window
     {
         private Recipe currentRecipe;
-        private int recipeIndex;
 
-        public RecipeDetailWindow(Recipe recipe, int index)
+        public RecipeDetailWindow(Recipe recipe)
         {
             InitializeComponent();
             currentRecipe = recipe;
-            recipeIndex = index;
             DisplayRecipeDetails();
         }
 
@@ -62,7 +59,16 @@ namespace Recipe_GUI_App
 
         private void DeleteButton_Click(object sender, RoutedEventArgs e)
         {
-            RecipeRepository.DeleteRecipe(recipeIndex);
+            RecipeRepository.Recipes.Remove(currentRecipe);
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+            this.Close();
+        }
+
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            ViewRecipesWindow viewRecipesWindow = new ViewRecipesWindow();
+            viewRecipesWindow.Show();
             this.Close();
         }
     }

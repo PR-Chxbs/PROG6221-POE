@@ -9,14 +9,14 @@ namespace Recipe_GUI_App
 
         public AddRecipeWindow()
         {
-            //InitializeComponent();
+            InitializeComponent();
             currentRecipe = new Recipe();
         }
 
         private void AddIngredientButton_Click(object sender, RoutedEventArgs e)
         {
             // Collect ingredient details
-            string name = IngredientNameTextBox.Text;
+            string name = IngredientNameTextBox.Text.ToString();
             if (int.TryParse(QuantityTextBox.Text, out int quantity) &&
                 double.TryParse(CaloriesTextBox.Text, out double calories))
             {
@@ -69,6 +69,15 @@ namespace Recipe_GUI_App
             RecipeRepository.Recipes.Add(currentRecipe);
 
             // Close the window
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+            this.Close();
+        }
+
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
             this.Close();
         }
     }
