@@ -7,6 +7,7 @@
         <StackPanel>
             <Button Content="Add New Recipe" Click="AddRecipe_Click" Margin="10"/>
             <Button Content="View All Recipes" Click="ViewRecipes_Click" Margin="10"/>
+            <Button Content="Add Test Recipes" Click="AddTestRecipes_Click" Margin="10"/>
             <Button Content="Quit" Click="Quit_Click" Margin="10"/>
         </StackPanel>
     </Grid>

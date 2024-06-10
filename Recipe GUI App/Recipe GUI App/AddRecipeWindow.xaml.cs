@@ -6,17 +6,20 @@ namespace Recipe_GUI_App
     public partial class AddRecipeWindow : Window
     {
         private Recipe currentRecipe;
+        private bool notificationShown;
 
         public AddRecipeWindow()
         {
             InitializeComponent();
             currentRecipe = new Recipe();
+            currentRecipe.TotalCaloriesExceeded += OnTotalCaloriesExceeded;
+            notificationShown = false;
         }
 
         private void AddIngredientButton_Click(object sender, RoutedEventArgs e)
         {
             // Collect ingredient details
-            string name = IngredientNameTextBox.Text.ToString();
+            string name = IngredientNameTextBox.Text;
             if (int.TryParse(QuantityTextBox.Text, out int quantity) &&
                 double.TryParse(CaloriesTextBox.Text, out double calories))
             {
@@ -65,13 +68,21 @@ namespace Recipe_GUI_App
             currentRecipe.RecipeName = recipeName;
 
             // Save the recipe to the repository
-
             RecipeRepository.Recipes.Add(currentRecipe);
 
             // Close the window
             MainWindow mainWindow = new MainWindow();
             mainWindow.Show();
             this.Close();
+        }
+
+        private void OnTotalCaloriesExceeded(double totalCalories)
+        {
+            if (!notificationShown)
+            {
+                MessageBox.Show($"This recipe has exceeded 300 calories. Total calories: {totalCalories}", "Calorie Alert", MessageBoxButton.OK, MessageBoxImage.Warning);
+                notificationShown = true;
+            }
         }
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
