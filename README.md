@@ -1,69 +1,109 @@
-# PROG6221-POE
- Repository for my programming POE
+# Recipe GUI App
 
-ST10310050
-Wahina Prince Chabalala
-PROG6221 POE Part 1
+This is a WPF (Windows Presentation Foundation) application for managing recipes. Users can add, view, scale, reset, and delete recipes. Additionally, users can filter recipes based on ingredients, food groups, and calorie limits. The application also provides a notification if the total calories of a recipe exceed 300 while adding ingredients.
+
+## Features
+- Add new recipes with ingredients and steps.
+- View all recipes.
+- Scale ingredients and calories.
+- Reset ingredients to original values.
+- Delete recipes.
+- Filter recipes based on ingredients, food groups, and calorie limits.
+- Notification for recipes exceeding 300 calories.
+
+## Prerequisites
+- Visual Studio 2022 or later
+- .NET 8.0 SDK or later
+
+## Setup Instructions
+
+### Cloning the Repository
 
 https://github.com/PR-Chxbs/PROG6221-POE
-======================================================================
-# FilePath
-To run the program, open the project using Visual Studio
 
-The project file's path from this directory is:
+1. Open your terminal or command prompt.
+2. Clone the repository using the following command:
+   ```bash
+   git clone https://github.com/PR-Chxbs/PROG6221-POE
+   ```
+3. Navigate to the project directory:
+   ```bash
+   cd Recipe-GUI-App
+   ```
 
-`.\Recipe App\Recipe App.sln`
+### Opening the Project
+1. Open Visual Studio.
+2. Click on `Open a project or solution`.
+3. Navigate to the `Recipe GUI App` directory and select the `Recipe GUI App.sln` file.
 
-All the project source code is in:
+### Building the Project
+1. Once the project is opened in Visual Studio, build the solution by:
+   - Clicking on `Build` in the menu bar.
+   - Selecting `Build Solution` (or press `Ctrl+Shift+B`).
 
-`.\Recipe App\Recipe App\`
+### Running the Project
+1. After successfully building the solution, run the application by:
+   - Clicking on `Debug` in the menu bar.
+   - Selecting `Start Debugging` (or press `F5`).
 
-The file which you need to run is:
+### Adding Test Recipes
+To quickly add some test recipes:
+1. Click on the `Add Test Recipes` button on the `MainWindow`.
+2. Three test recipes will be added to the `RecipeRepository`.
 
-`.\Recipe App\Recipe App\Program.cs`
+### Using the Application
+1. **Add Recipe:**
+   - Click on `Add New Recipe`.
+   - Fill in the recipe details, add ingredients and steps, then click `Save Recipe`.
+2. **View Recipes:**
+   - Click on `View All Recipes`.
+   - Select a recipe to view its details.
+   - Use the buttons to scale, reset, or delete the recipe.
+3. **Filter Recipes:**
+   - Use the filter options to filter recipes by ingredient, food group, or maximum calories.
 
-======================================================================
+### Notifying for High-Calorie Recipes
+While adding ingredients in the `AddRecipeWindow`, if the total calories exceed 300, a notification will be shown to the user once.
 
-Program.cs relies on the classes Ingredient.cs, Recipe.cs and Step.cs in order for it to run.
-Do not move any of the files found in this repository otherwise the code may not work well.
-Run it in its current state and arrangement.
+## Project Structure
+- `MainWindow.xaml` and `MainWindow.xaml.cs`: Main window with options to add, view, or quit the application.
+- `AddRecipeWindow.xaml` and `AddRecipeWindow.xaml.cs`: Window for adding new recipes.
+- `ViewRecipesWindow.xaml` and `ViewRecipesWindow.xaml.cs`: Window for viewing and managing recipes.
+- `RecipeDetailWindow.xaml` and `RecipeDetailWindow.xaml.cs`: Window for viewing and editing the details of a selected recipe.
+- `Recipe.cs`: Model class for recipes.
+- `RecipeRepository.cs`: Static class for storing and managing recipes.
 
-======================================================================
-# Usage
-When you run the code, you will be presented with a menu that looks something likes this:
+## Troubleshooting
+- **Debug Executable Not Found Error:**
+  - Ensure the build was successful.
+  - Check if the executable is being blocked by an antivirus or other security software.
+  - Try cleaning the solution and rebuilding it:
+    - `Build > Clean Solution`
+    - `Build > Rebuild Solution`
 
-Select an option:
-1. Add Recipe Details
-2. Display Recipe
-3. Scale Recipe
-4. Reset Original Values
-5. Clear Recipe
-6. Quit
+- **Recipes Not Displaying Properly:**
+  - Make sure the data bindings in the XAML files are correctly set.
+  - Check the `LoadRecipes` method to ensure it correctly populates the `ListBox`.
 
+## Contributing
+1. Fork the repository.
+2. Create a new branch for your feature or bugfix:
+   ```bash
+   git checkout -b feature-name
+   ```
+3. Commit your changes:
+   ```bash
+   git commit -m "Description of changes"
+   ```
+4. Push to the branch:
+   ```bash
+   git push origin feature-name
+   ```
+5. Create a pull request.
 
-Before being able to use any of the other options, you will have to add a recipe ``(option 1)``,
-however the application has sufficient error handling and will not crash if you decide
-to display recipe details before actually adding a recipe. It will simply let you know that
-you need to add a recipe first.
+## License
+This project is licensed under the MIT License. See the `LICENSE` file for details.
 
-Once you have added recipe details, you will now be able to use the other options, to either view
-the recipe details you had entered ``(option 2)`` or even scale the ingredient quantities by a factor from 3 given options ``(option 3)``.
+---
 
-You also have the option of resetting the ingredient quantities to what you had originally entered ``(option 4)``
-
-Additionally you can choose to clear the recipe so that you can enter new recipe details ``(option 5)``
-
-***********************
-
-The application runs up until you have decided to quit by entering 6 in the main menu ``(option 6)``.
-
-======================================================================
-
-Updates
-
-Added part 2 Functionality
-
-- Unlimited recipes
-- Added calories to the ingredients
-- Added food groups
-- Changed arrays to generic collections
+Feel free to reach out if you encounter any issues or have any questions regarding the application. Happy cooking!
